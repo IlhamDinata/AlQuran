@@ -36,14 +36,17 @@ class IsiSurah {
   factory IsiSurah.fromJson(Map<String, dynamic> json) => IsiSurah(
         translationId: json["translationId"],
         translationEn: json["translationEn"],
-        asma: json["asma"],
-        numberOfAyahs: json["numberOfAyahs"],
+        asma: json["asma"] == null ? [] : json["asma"],
+        numberOfAyahs:
+            json["numberOfAyahs"] == null ? [] : json["numberOfAyahs"],
         name: json["name"],
         number: json["number"],
         typeId: json["typeId"],
         typeEn: json["typeEn"],
         orderNumber: json["orderNumber"],
-        ayahs: List<Ayah>.from(json["ayahs"].map((x) => Ayah.fromJson(x))),
+        ayahs: json["ayahs"] == null
+            ? []
+            : List<Ayah>.from(json["ayahs"].map((x) => Ayah.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -91,11 +94,11 @@ class Ayah {
 
   factory Ayah.fromJson(Map<String, dynamic> json) => Ayah(
         verseId: json["verseId"],
-        ayahText: json["ayahText"],
-        indoText: json["indoText"],
+        ayahText: json["ayahText"] == null ? [] : json["ayahText"],
+        indoText: json["indoText"] == null ? [] : json["indoText"],
         enText: json["enText"],
-        readText: json["readText"],
-        audio: json["audio"],
+        readText: json["readText"] == null ? [] : json["readText"],
+        audio: json["audio"] == null ? [] : json["audio"],
         juz: json["juz"],
         manzil: json["manzil"],
         page: json["page"],

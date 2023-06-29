@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:alquranapps/controller/isisurah_controller.dart';
 import 'package:alquranapps/model/isi_surah.dart';
 import 'package:alquranapps/model/surat.dart';
@@ -59,47 +61,64 @@ class IsiSurahPage extends StatelessWidget {
                   child: Text("Tidak Ada Data"),
                 );
               }
-              return Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: snapshot.data?.ayahs?.length ?? 0,
-                  itemBuilder: (context, index) {
-                    if (snapshot.data?.ayahs?.length == 0) {
-                      return SizedBox();
-                    }
-                    return Column(
-                      children: [
-                        Card(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: MyColor.primary,
-                                  child: Text("${index + 1}"),
-                                ),
-                                // Text(
-                                //     "${snapshot.data!.ayahs?[index].indoText}"),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.mic),
-                                ),
-                              ],
-                            ),
+              return ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: snapshot.data?.ayahs?.length ?? 0,
+                itemBuilder: (context, index) {
+                  if (snapshot.data?.ayahs?.length == 0) {
+                    return SizedBox();
+                  }
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: MyColor.primary,
+                                child: Text("${index + 1}"),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    controller.playAyahAudio(
+                                        "${snapshot.data!.ayahs![index].audio}");
+                                  },
+                                  icon: Icon(Icons.music_note)),
+                            ],
                           ),
                         ),
-                        Text(
-                          "${snapshot.data!.ayahs?[index].ayahText}",
-                          style: MyText().ayatAlQuran,
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    );
-                  },
-                ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "${snapshot.data!.ayahs?[index].ayahText}",
+                        style: MyText().ayatAlQuran,
+                        textAlign: TextAlign.end,
+                      ),
+                      SizedBox(height: 30),
+                      Text(
+                        "${snapshot.data!.ayahs?[index].readText}",
+                        // style: MyText().artiAyatAlQuran,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontStyle: FontStyle.italic,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "${snapshot.data!.ayahs?[index].indoText}",
+                        style: MyText().artiAyatAlQuran,
+                        textAlign: TextAlign.justify,
+                      ),
+                      SizedBox(height: 50),
+                    ],
+                  );
+                },
               );
             },
           ),

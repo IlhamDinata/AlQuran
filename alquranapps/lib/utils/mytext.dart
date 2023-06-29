@@ -44,4 +44,10 @@ class MyText {
     color: MyColor.black,
     fontSize: 25,
   );
+
+  TextStyle artiAyatAlQuran = GoogleFonts.poppins(
+    fontWeight: FontWeight.w400,
+    color: MyColor.black,
+    fontSize: 18,
+  );
 }
