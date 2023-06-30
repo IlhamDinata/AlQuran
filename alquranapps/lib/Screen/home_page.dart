@@ -20,7 +20,44 @@ class HomePage extends StatelessWidget {
         backgroundColor: MyColor.white,
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Get.toNamed(AppPages.kumpulandoa);
+          },
+          icon: Icon(
+            Icons.textsms,
+            color: MyColor.primary,
+          ),
+        ),
       ),
+
+      // body: Padding(
+      //   padding: const EdgeInsets.all(20),
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       Text("data"),
+      //       SizedBox(
+      //         height: 20,
+      //       ),
+      //       Container(
+      //         height: 175,
+      //         width: Get.width,
+      //         child: Stack(
+      //           children: [
+
+      //           ],
+      //         ),
+      //         decoration: BoxDecoration(
+      //           borderRadius: BorderRadius.circular(25),
+      //           gradient: LinearGradient(
+      //             colors: [MyColor.primary, MyColor.secondary, MyColor.sec],
+      //           ),
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: FutureBuilder<List<Surah>>(
         future: controller.getAllSurah(),
         builder: (context, snapshot) {
