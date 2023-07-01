@@ -10,15 +10,21 @@ class MyText {
   );
 
   TextStyle subIntroductionText = GoogleFonts.poppins(
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w600,
     color: Colors.white,
-    fontSize: 20,
+    fontSize: 19,
   );
 
   TextStyle primaryText = GoogleFonts.poppins(
     fontWeight: FontWeight.bold,
     color: MyColor.primary,
     fontSize: 18,
+  );
+
+  TextStyle secondaryText = GoogleFonts.poppins(
+    fontWeight: FontWeight.w500,
+    color: MyColor.primary,
+    fontSize: 16,
   );
 
   TextStyle titleText = GoogleFonts.poppins(

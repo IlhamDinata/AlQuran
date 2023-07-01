@@ -23,9 +23,9 @@ class IntroductionPage extends StatelessWidget {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Lorem Ipsum Text Lorem Ipsum",
+                "Al-Quran adalah obat, membacanya adalah kesembuhan",
                 style: MyText().subIntroductionText,
                 textAlign: TextAlign.center,
               ),

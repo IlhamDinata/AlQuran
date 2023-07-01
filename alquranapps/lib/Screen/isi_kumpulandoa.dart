@@ -2,7 +2,7 @@ import 'package:alquranapps/controller/kumpulan_doa_controller.dart';
 import 'package:alquranapps/model/kumpulan_doa.dart';
 import 'package:alquranapps/utils/mycolors.dart';
 import 'package:alquranapps/utils/mytext.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
